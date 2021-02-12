@@ -440,6 +440,12 @@ function draw() {
     player.velocity.y = -JUMP;
     jumps=jumps+1;
   }
+  
+  if(keyWentDown(32)&&(jumps==0))
+  {
+    player.velocity.y = -JUMP;
+    jumps=jumps+1;
+  }
  
    
   if(door.overlapPixel(player.position.x, player.position.y)==true && lvl==1){
