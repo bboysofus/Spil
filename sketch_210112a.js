@@ -277,12 +277,23 @@ function draw() {
   fill('white');
   text('lives: ' + lives, 600, 60);
   text('level: ' + lvl, 800, 60);
+  
+  textSize(15);
+  textStyle(NORMAL);
+  text('Move: A, D/Left Arrow, Right Arrow', 10, 20);
+  text('Jump: W/SPACE/Up Arrow', 10, 40);
   player.velocity.x = 0;
   
   if (keyIsDown(LEFT_ARROW))
     {player.velocity.x = -6;
     player.mirrorX(-1);}
+  if (keyIsDown(65))
+    {player.velocity.x = -6;
+    player.mirrorX(-1);}
   if (keyIsDown(RIGHT_ARROW))
+    {player.velocity.x = 6;
+    player.mirrorX(1);}
+  if (keyIsDown(68))
     {player.velocity.x = 6;
     player.mirrorX(1);}
    
@@ -440,6 +451,21 @@ function draw() {
     player.velocity.y = -JUMP;
     jumps=jumps+1;
   }
+ 
+ if(keyWentDown(UP_ARROW)&&(jumps==0))
+  {
+    player.velocity.y = -JUMP;
+    jumps=jumps+1;
+  }
+  
+  if(keyWentDown(87)&&(jumps==0))
+  {
+    player.velocity.y = -JUMP;
+    jumps=jumps+1;
+  }
+ 
+ 
+ 
    
   if(door.overlapPixel(player.position.x, player.position.y)==true && lvl==1){
     lvl=lvl+1;
